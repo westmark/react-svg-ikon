@@ -139,6 +139,8 @@ Icon.defaultProps = {
 styles = StyleSheet.create( {
   container: {
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   errorContainer: {
