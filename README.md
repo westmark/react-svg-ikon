@@ -1,10 +1,10 @@
-# react-svg-icon
+# react-svg-ikon
 
 Opinionated React component for caching and displaying SVG Icons.
 
 ## Installation
 
-`> yarn add react-svg-icon`
+`> yarn add react-svg-ikon`
 
 Requires `react`, `react-dom`, `aphrodite` and `recompose` as peerDependencies.
 
@@ -36,7 +36,7 @@ Example svg file:
 ### React component
 
 ```
-import Icon from 'react-svg-icon';
+import Icon from 'react-svg-ikon';
 import svgImg from '../img/some-svg.svg';
 
 ...
