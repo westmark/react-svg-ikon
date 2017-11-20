@@ -13,3 +13,7 @@
   stroke: currentColor;
   vertical-align: bottom;
 }
+
+.icon-container svg text {
+  fill: currentColor;
+}

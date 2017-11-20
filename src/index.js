@@ -33,7 +33,11 @@ const enhance = compose(
           this.props.setIconMeta( iconLib[ src ] );
         }
       } else {
-        iconLib[ src ] = fetch( src )
+        iconLib[ src ] = fetch( src, {
+          method: 'GET',
+          credentials: 'include',
+          headers: { accept: 'image/webp,image/apng,image/*,*/*;q=0.8' },
+        } )
           .then( ( response ) => response.text() )
           .then( ( contents ) => {
             const vhMatch = contents.match( widthHeightRe );
@@ -66,7 +70,7 @@ const enhance = compose(
               let container = document.querySelector( '#react-svg-icon-repo' );
               if ( !container ) {
                 container = document.createElement( 'div' );
-                container.setAttribute( 'id', 'react-svg-icon-repo' );
+                container.setAttribute( 'id', 'react-svg-ikon-repo' );
                 container.setAttribute( 'style', 'display:none' );
                 document.body.appendChild( container );
               }
@@ -100,8 +104,8 @@ const Icon = ( { iconMeta, style, fill, stroke, className } ) => {
   }
 
   const svgStyle = {
-    width: iconMeta.width,
-    height: iconMeta.height,
+    width: ( style && style.width ) || iconMeta.width,
+    height: ( style && style.height ) || iconMeta.height,
   };
 
   return (
