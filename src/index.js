@@ -84,7 +84,7 @@ const enhance = compose(
   } ),
 );
 
-const Icon = ( { iconMeta, style, fill, stroke, className } ) => {
+const Icon = ( { iconMeta, style, fill, color, stroke, className } ) => {
   if ( iconMeta === null ) {
     return null;
   }
@@ -95,9 +95,20 @@ const Icon = ( { iconMeta, style, fill, stroke, className } ) => {
     );
   }
 
-  const baseClassName = `icon-container ${ fill && !stroke ? 'fill' : '' } ${ stroke ? 'stroke' : '' } ${ className }`;
+  let baseClassName = `icon-container ${ className }`;
+  if ( color ) {
+    baseClassName = `${ baseClassName } stroke fill`;
+  } else if ( fill ) {
+    baseClassName = `${ baseClassName } fill`;
+  } else if ( stroke ) {
+    baseClassName = `${ baseClassName } stroke`;
+  }
+
+
   let finalStyle;
-  if ( stroke ) {
+  if ( color ) {
+    finalStyle = { color };
+  } else if ( stroke ) {
     finalStyle = { color: stroke };
   } else if ( fill ) {
     finalStyle = { color: fill };
@@ -129,6 +140,7 @@ Icon.propTypes = {
   style: stylePropType,
   fill: PropTypes.string,
   stroke: PropTypes.string,
+  color: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -137,6 +149,7 @@ Icon.defaultProps = {
   style: null,
   fill: null,
   stroke: null,
+  color: null,
   className: '',
 };
 
