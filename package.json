@@ -31,12 +31,14 @@
     "rimraf": "^2.6.1"
   },
   "peerDependencies": {
-    "aphrodite": ">= 1.2.3",
-    "prop-types": ">= 15.5.10",
-    "react": ">= 16.0.0",
-    "recompose": ">= 0.24.0"
+    "prop-types": ">=15.6.2",
+    "react": ">=16.0.0",
+    "react-dom": "^16.0.0",
+    "styled-components": ">=4.0.0"
   },
   "eslintConfig": {
     "extends": "westlint"
+  },
+  "dependencies": {
   }
 }
